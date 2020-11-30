@@ -19,7 +19,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  # setup
+  FullContact.api_key = "[API_KEY]"
+```
+
+see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
+
+```ruby
+  person_request = FullContact::PersonEnrichRequest.new(email: "bart@fullcontact.com")
+  person = person_request.perform
+  puts person.full_name # "Bart Lorang"
+  puts person.age_range # "30-39"
+  puts person.gender # "Male"
+  puts person.location # "Denver, CO, United States"
+  puts person.title # "Co-Founder & Managing Director"
+  puts person.organization # "V1.vc"
+  puts person.twitter # "https://twitter.com/bartlorang"
+  puts person.linkedin # "https://www.linkedin.com/in/bartlorang"
+  puts person.bio # "CEO & Co-Founder of @FullContact, Managing Director @v1vc_. Tech Entrepreneur, Investor."
+  puts person.avatar # "https://d2ojpxxtu63wzl.cloudfront.net/static/a7e6a5aba590d4933e35eaadabd97fd2_44e00e968ac57725a15b32f9ca714827aff8e4818d290cb0c611f2e2585253b3"
+
+  # example with all options
+  person_request = FullContact::PersonEnrichRequest.new(emails: ["bart@fullcontact.com", "bart.lorang@fullcontact.com"],
+                                                        phones: ["+17202227799", "+13035551234"],
+                                                        location: { "addressLine1": "123 Main Street",
+                                                                    "addressLine2": "Unit 2",
+                                                                    "city": "Denver",
+                                                                    "region": "Colorado",
+                                                                    "regionCode": "CO",
+                                                                    "postalCode": "80203"},
+                                                        name: { "full": "Bart Lorang",
+                                                                "given": "Bart",
+                                                                "family": "Lorang" },
+                                                        profiles: [{ "service": "twitter", "username": "bartlorang" }, 
+                                                                   { "service": "twitter", "userid": "5998422" }, 
+                                                                   { "service": "linkedin", "url": "https://www.linkedin.com/in/bartlorang" }, 
+                                                                   { "service": "github", "url": "https://www.github.com/lorangb"}],
+                                                        maids: ["ape2ch30-pifn-cbvi-30yy-nia-zex7aw5u"],
+                                                        person_id: "eYxWc0B-dKRxerTw_uQpxCssM_GyPaLErj0Eu3y2FrU6py1J",
+                                                        record_id: "customer123")
+```
 
 ## Development
 
