@@ -41,24 +41,27 @@ see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
   puts person.avatar # "https://d2ojpxxtu63wzl.cloudfront.net/static/a7e6a5aba590d4933e35eaadabd97fd2_44e00e968ac57725a15b32f9ca714827aff8e4818d290cb0c611f2e2585253b3"
 
   # example with all options
-  person_request = FullContact::PersonEnrichRequest.new(emails: ["bart@fullcontact.com", "bart.lorang@fullcontact.com"],
-                                                        phones: ["+17202227799", "+13035551234"],
-                                                        location: { "addressLine1": "123 Main Street",
-                                                                    "addressLine2": "Unit 2",
-                                                                    "city": "Denver",
-                                                                    "region": "Colorado",
-                                                                    "regionCode": "CO",
-                                                                    "postalCode": "80203"},
-                                                        name: { "full": "Bart Lorang",
-                                                                "given": "Bart",
-                                                                "family": "Lorang" },
-                                                        profiles: [{ "service": "twitter", "username": "bartlorang" }, 
-                                                                   { "service": "twitter", "userid": "5998422" }, 
-                                                                   { "service": "linkedin", "url": "https://www.linkedin.com/in/bartlorang" }, 
-                                                                   { "service": "github", "url": "https://www.github.com/lorangb"}],
-                                                        maids: ["ape2ch30-pifn-cbvi-30yy-nia-zex7aw5u"],
-                                                        person_id: "eYxWc0B-dKRxerTw_uQpxCssM_GyPaLErj0Eu3y2FrU6py1J",
-                                                        record_id: "customer123")
+  person_request = FullContact::PersonEnrichRequest.new(
+    emails: ["bart@fullcontact.com", "bart.lorang@fullcontact.com"],
+    phones: ["+17202227799", "+13035551234"],
+    location: { "address_line1": "123 Main Street",
+                "address_line2": "Unit 2",
+                "city": "Denver",
+                "region": "Colorado",
+                "region_code": "CO",
+                "postal_code": "80203" },
+    name: { "full": "Bart Lorang",
+            "given": "Bart",
+            "family": "Lorang" },
+    profiles: [{ "service": "twitter", "username": "bartlorang" },
+               { "service": "twitter", "userid": "5998422" },
+               { "service": "linkedin", "url": "https://www.linkedin.com/in/bartlorang" },
+               { "service": "github", "url": "https://www.github.com/lorangb"}],
+    maids: ["ape2ch30-pifn-cbvi-30yy-nia-zex7aw5u"],
+    person_id: "eYxWc0B-dKRxerTw_uQpxCssM_GyPaLErj0Eu3y2FrU6py1J",
+    record_id: "customer123",
+    infer: true,
+    data_filter: ["social", "employment_history"])
 ```
 
 ## Development
