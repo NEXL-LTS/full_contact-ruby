@@ -187,5 +187,33 @@ module FullContact
                                                          { 'personId' => person_id })
       end
     end
+
+    context 'with data_filter' do
+      let(:data_filter) { ["social", "employment_history"] }
+      let(:subject) do
+        described_class.new(data_filter: data_filter)
+      end
+
+      it "sends request with correct params" do
+        subject.perform(http_client: http_client)
+
+        expect(http_client).to have_received(:post).with("/v3/person.enrich",
+                                                         { 'dataFilter' => ["social", "employment_history"] })
+      end
+    end
+
+    context 'with infer' do
+      let(:infer) { false }
+      let(:subject) do
+        described_class.new(infer: infer)
+      end
+
+      it "sends request with correct params" do
+        subject.perform(http_client: http_client)
+
+        expect(http_client).to have_received(:post).with("/v3/person.enrich",
+                                                         { 'infer' => infer })
+      end
+    end
   end
 end

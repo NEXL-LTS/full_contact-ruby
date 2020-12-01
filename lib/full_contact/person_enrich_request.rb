@@ -18,6 +18,8 @@ module FullContact
     property :maids
     property :personId, from: :person_id
     property :recordId, from: :record_id
+    property :dataFilter, from: :data_filter
+    property :infer
 
     def perform(http_client: HttpClient.new)
       Response.new(
