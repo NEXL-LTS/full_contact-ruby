@@ -1,12 +1,12 @@
 require 'rest-client'
 require 'multi_json'
 
-module FullContact
+module FullContactApi
   class HttpClient
     def post(path, payload_hash)
       response = RestClient.post("https://api.fullcontact.com#{path}",
                                  MultiJson.encode(payload_hash),
-                                 authorization: "Bearer #{FullContact.api_key}")
+                                 authorization: "Bearer #{FullContactApi.api_key}")
       MultiJson.decode(response.body)
     rescue RestClient::NotFound
       nil

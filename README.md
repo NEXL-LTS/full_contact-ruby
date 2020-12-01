@@ -1,4 +1,4 @@
-# FullContact
+# Full Contact Api
 [![Build Status](https://travis-ci.org/NEXL-LTS/full_contact-ruby.svg?branch=main)](https://travis-ci.org/NEXL-LTS/full_contact-ruby)
 
 ## Installation
@@ -21,13 +21,13 @@ Or install it yourself as:
 
 ```ruby
   # setup
-  FullContact.api_key = "[API_KEY]"
+  FullContactApi.api_key = "[API_KEY]"
 ```
 
 see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
 
 ```ruby
-  person_request = FullContact::PersonEnrichRequest.new(email: "bart@fullcontact.com")
+  person_request = FullContactApi::PersonEnrichRequest.new(email: "bart@fullcontact.com")
   person = person_request.perform
   puts person.full_name # "Bart Lorang"
   puts person.age_range # "30-39"
@@ -41,7 +41,7 @@ see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
   puts person.avatar # "https://d2ojpxxtu63wzl.cloudfront.net/static/a7e6a5aba590d4933e35eaadabd97fd2_44e00e968ac57725a15b32f9ca714827aff8e4818d290cb0c611f2e2585253b3"
 
   # example with all options
-  person_request = FullContact::PersonEnrichRequest.new(
+  person_request = FullContactApi::PersonEnrichRequest.new(
     emails: ["bart@fullcontact.com", "bart.lorang@fullcontact.com"],
     phones: ["+17202227799", "+13035551234"],
     location: { "address_line1": "123 Main Street",

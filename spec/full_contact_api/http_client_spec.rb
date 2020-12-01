@@ -1,7 +1,7 @@
-module FullContact
+module FullContactApi
   RSpec.describe HttpClient do
     before do
-      allow(FullContact).to receive(:api_key).and_return("TEST!")
+      allow(FullContactApi).to receive(:api_key).and_return("TEST!")
     end
 
     it 'works' do
