@@ -7,9 +7,7 @@ module FullContact
       response = RestClient.post("https://api.fullcontact.com#{path}",
                                  MultiJson.encode(payload_hash),
                                  authorization: "Bearer #{FullContact.api_key}")
-      r = MultiJson.decode(response.body)
-      puts r
-      r
+      MultiJson.decode(response.body)
     rescue RestClient::NotFound
       nil
     end
