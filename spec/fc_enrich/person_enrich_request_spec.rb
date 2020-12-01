@@ -1,4 +1,4 @@
-module FullContactApi
+module FcEnrich
   RSpec.describe PersonEnrichRequest do
     let(:http_client) { instance_double(HttpClient) }
 

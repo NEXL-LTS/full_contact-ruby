@@ -1,8 +1,8 @@
-require_relative 'lib/full_contact_api/version'
+require_relative 'lib/fc_enrich/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "full_contact"
-  spec.version       = FullContactApi::VERSION
+  spec.name          = "fc_enrich"
+  spec.version       = FcEnrich::VERSION
   spec.authors       = ["Grant Petersen-Speelman"]
   spec.email         = ["grant@nexl.io"]
   spec.license       = "MIT"

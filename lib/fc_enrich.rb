@@ -1,6 +1,6 @@
-require "full_contact_api/version"
+require "fc_enrich/version"
 
-module FullContactApi
+module FcEnrich
   class Error < StandardError; end
   # Your code goes here...
 
@@ -13,4 +13,4 @@ module FullContactApi
   end
 end
 
-require 'full_contact_api/person_enrich_request'
+require 'fc_enrich/person_enrich_request'

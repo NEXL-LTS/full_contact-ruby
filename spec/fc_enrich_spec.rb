@@ -1,6 +1,6 @@
-RSpec.describe FullContactApi do
+RSpec.describe FcEnrich do
   it "has a version number" do
-    expect(FullContactApi::VERSION).not_to be nil
+    expect(FcEnrich::VERSION).not_to be nil
   end
 
   it 'can set api key' do

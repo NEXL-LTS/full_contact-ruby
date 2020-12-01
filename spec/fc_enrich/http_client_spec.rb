@@ -1,7 +1,7 @@
-module FullContactApi
+module FcEnrich
   RSpec.describe HttpClient do
     before do
-      allow(FullContactApi).to receive(:api_key).and_return("TEST!")
+      allow(FcEnrich).to receive(:api_key).and_return("TEST!")
     end
 
     it 'works' do

@@ -3,7 +3,7 @@ require 'active_support/core_ext/string'
 
 require_relative 'http_client'
 
-module FullContactApi
+module FcEnrich
   class PersonEnrichRequest < Hashie::Trash
     include Hashie::Extensions::IndifferentAccess
 
