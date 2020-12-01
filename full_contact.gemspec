@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.add_dependency 'activesupport'
-  spec.add_dependency 'hashie'
-  spec.add_dependency 'multi_json'
-  spec.add_dependency 'rest-client'
+  spec.add_dependency 'activesupport', '>= 3.2', '< 7.0'
+  spec.add_dependency 'hashie', '>= 3.1.0', '< 5.0'
+  spec.add_dependency 'multi_json', '>= 1.0.0', '< 2.0'
+  spec.add_dependency 'rest-client', '>= 2.0.0', '< 3.0'
 end

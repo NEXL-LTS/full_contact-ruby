@@ -5,9 +5,9 @@ module FullContact
   class HttpClient
     def post(path, payload_hash)
       response = RestClient.post("https://api.fullcontact.com#{path}",
-                                 MultiJson.dump(payload_hash),
+                                 MultiJson.encode(payload_hash),
                                  authorization: "Bearer #{FullContact.api_key}")
-      r = MultiJson.load(response.body)
+      r = MultiJson.decode(response.body)
       puts r
       r
     rescue RestClient::NotFound
