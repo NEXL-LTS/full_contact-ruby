@@ -64,6 +64,24 @@ see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
     data_filter: ["social", "employment_history"])
 ```
 
+## Usage Testing
+
+Inside your tests can enable fake mode which will always return the same sample json
+
+```ruby
+Rspec.describe "Test" do
+  before :each do
+    allow(FcEnrich).to receive(:use_fake?).and_return(true)
+  end
+
+  it 'returns sample client info' do
+    person_request = FcEnrich::PersonEnrichRequest.new(email: "any@email.com")
+    person = person_request.perform
+    expect(person.full_name).to eq("Bart Lorang")
+  end
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

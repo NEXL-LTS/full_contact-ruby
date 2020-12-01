@@ -11,6 +11,15 @@ module FcEnrich
   def self.api_key
     @key
   end
+
+  def self.http_client
+    use_fake? ? FakeClient.new : HttpClient.new
+  end
+
+  def self.use_fake?
+    false
+  end
 end
 
 require 'fc_enrich/person_enrich_request'
+require 'fc_enrich/fake_client'

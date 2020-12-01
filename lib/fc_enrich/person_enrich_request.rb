@@ -21,7 +21,7 @@ module FcEnrich
     property :dataFilter, from: :data_filter
     property :infer
 
-    def perform(http_client: HttpClient.new)
+    def perform(http_client: FcEnrich.http_client)
       Response.new(
         http_client.post("/v3/person.enrich", to_hash)
       )

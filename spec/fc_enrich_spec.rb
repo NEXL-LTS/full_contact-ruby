@@ -8,4 +8,16 @@ RSpec.describe FcEnrich do
 
     expect(described_class).to have_attributes(api_key: "TEST!")
   end
+
+  it 'returns real client' do
+    expect(described_class.http_client).to be_kind_of(FcEnrich::HttpClient)
+  end
+
+  it 'returns fake client' do
+    allow(described_class).to receive(:use_fake?).and_return(true)
+
+    person_request = FcEnrich::PersonEnrichRequest.new(email: "any@email.com")
+    person = person_request.perform
+    expect(person.full_name).to eq("Bart Lorang")
+  end
 end
