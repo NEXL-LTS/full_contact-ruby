@@ -24,6 +24,8 @@ Or install it yourself as:
   FcEnrich.api_key = "[API_KEY]"
 ```
 
+#### Person Enrich
+
 see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
 
 ```ruby
@@ -64,7 +66,29 @@ see https://platform.fullcontact.com/docs/apis/enrich/multi-field-request
     data_filter: ["social", "employment_history"])
 ```
 
-## Usage Testing
+
+#### Company Enrich
+
+see https://platform.fullcontact.com/docs/apis/enrich/company-enrichment
+
+```ruby
+  company_request = FcEnrich::CompanyEnrichRequest.new(domain: "fullcontact.com")
+  company = company_request.perform
+  puts company.name # "FullContact, Inc."
+  puts company.location # "1755 Blake Street, Suite 450, Denver, Colorado, United States"
+  puts company.twitter # "@fullcontact"
+  puts company.linkedin # "https://www.linkedin.com/company/fullcontact-inc-"
+  puts company.bio # "FullContact is the ... contacts and be awesome with people."
+  puts company.logo # "https://d2ojpxxtu63wzl.cloudfront.net/stati...8ea9e4d47f5af6c"
+  puts company.website # "https://www.fullcontact.com"
+  puts company.founded # 2010
+  puts company.employees # 350
+  puts company.locale # "en"
+  puts company.category # "Other"
+  puts company.details # ...
+```
+
+### Testing
 
 Inside your tests can enable fake mode which will always return the same sample json
 
@@ -74,10 +98,18 @@ Rspec.describe "Test" do
     allow(FcEnrich).to receive(:use_fake?).and_return(true)
   end
 
-  it 'returns sample client info' do
+  it 'returns sample person info' do
     person_request = FcEnrich::PersonEnrichRequest.new(email: "any@email.com")
     person = person_request.perform
     expect(person.full_name).to eq("Bart Lorang")
+  end
+
+  it 'returns sample company info' do
+    allow(described_class).to receive(:use_fake?).and_return(true)
+
+    person_request = FcEnrich::CompanyEnrichRequest.new(domain: "email.com")
+    person = person_request.perform
+    expect(person.name).to eq("FullContact, Inc.")
   end
 end
 ```

@@ -1,3 +1,5 @@
+* CompanyEnrichRequest
+
 ## [0.2.1]
 * add additional info to fake data
 

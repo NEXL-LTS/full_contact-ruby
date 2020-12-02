@@ -22,4 +22,5 @@ module FcEnrich
 end
 
 require 'fc_enrich/person_enrich_request'
+require 'fc_enrich/company_enrich_request'
 require 'fc_enrich/fake_client'
