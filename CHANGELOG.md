@@ -1,3 +1,4 @@
+## [0.3.0]
 * CompanyEnrichRequest
 
 ## [0.2.1]
