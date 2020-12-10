@@ -114,6 +114,16 @@ Rspec.describe "Test" do
 end
 ```
 
+there is an option to enable fake mode all the time
+
+```ruby
+  FcEnrich.use_fake
+
+  # allows you to set a folder where fake data is pulled from
+  # this will created the folder with examples in it
+  FcEnrich::FakeClient.folder = "data/fc_enrich"
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -1,3 +1,5 @@
+* Additional fake options to make integration testing easier 
+
 ## [0.3.0]
 * CompanyEnrichRequest
 

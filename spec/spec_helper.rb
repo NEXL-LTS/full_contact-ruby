@@ -19,4 +19,8 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before do
+    FcEnrich::FakeClient.reset_folder
+  end
 end

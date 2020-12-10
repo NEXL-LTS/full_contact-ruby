@@ -16,8 +16,12 @@ module FcEnrich
     use_fake? ? FakeClient.new : HttpClient.new
   end
 
+  def self.use_fake
+    @use_fake = true
+  end
+
   def self.use_fake?
-    false
+    @use_fake
   end
 end
 

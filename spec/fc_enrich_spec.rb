@@ -13,10 +13,10 @@ RSpec.describe FcEnrich do
     expect(described_class.http_client).to be_kind_of(FcEnrich::HttpClient)
   end
 
-  it 'returns fake person enrich' do
+  it 'returns fake person enrich with bart@fullcontact.com' do
     allow(described_class).to receive(:use_fake?).and_return(true)
 
-    person_request = FcEnrich::PersonEnrichRequest.new(email: "any@email.com")
+    person_request = FcEnrich::PersonEnrichRequest.new(email: "bart@fullcontact.com")
     person = person_request.perform
     expect(person.full_name).to eq("Bart Lorang")
   end
@@ -24,7 +24,7 @@ RSpec.describe FcEnrich do
   it 'returns fake company enrich' do
     allow(described_class).to receive(:use_fake?).and_return(true)
 
-    person_request = FcEnrich::CompanyEnrichRequest.new(domain: "email.com")
+    person_request = FcEnrich::CompanyEnrichRequest.new(domain: "fullcontact.com")
     person = person_request.perform
     expect(person.name).to eq("FullContact, Inc.")
   end
