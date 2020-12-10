@@ -99,7 +99,7 @@ Rspec.describe "Test" do
   end
 
   it 'returns sample person info' do
-    person_request = FcEnrich::PersonEnrichRequest.new(email: "any@email.com")
+    person_request = FcEnrich::PersonEnrichRequest.new(email: "bart@fullcontact.com")
     person = person_request.perform
     expect(person.full_name).to eq("Bart Lorang")
   end
@@ -107,7 +107,7 @@ Rspec.describe "Test" do
   it 'returns sample company info' do
     allow(described_class).to receive(:use_fake?).and_return(true)
 
-    person_request = FcEnrich::CompanyEnrichRequest.new(domain: "email.com")
+    person_request = FcEnrich::CompanyEnrichRequest.new(domain: "fullcontact.com")
     person = person_request.perform
     expect(person.name).to eq("FullContact, Inc.")
   end
