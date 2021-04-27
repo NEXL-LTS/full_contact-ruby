@@ -8,7 +8,7 @@ module FcEnrich
                                  MultiJson.encode(payload_hash),
                                  authorization: "Bearer #{FcEnrich.api_key}")
       MultiJson.decode(response.body)
-    rescue RestClient::NotFound
+    rescue RestClient::NotFound, RestClient::UnprocessableEntity
       nil
     end
   end

@@ -80,12 +80,12 @@ module FcEnrich
 
     context 'with location' do
       let(:location) {
-        { "address_line1": "123 Main Street",
-          "address_line2": "Unit 2",
-          "city": "Denver",
-          "region": "Colorado",
-          "region_code": "CO",
-          "postal_code": "80203" }
+        { address_line1: "123 Main Street",
+          address_line2: "Unit 2",
+          city: "Denver",
+          region: "Colorado",
+          region_code: "CO",
+          postal_code: "80203" }
       }
       let(:expected_location) do
         { "addressLine1" => "123 Main Street",
@@ -109,9 +109,9 @@ module FcEnrich
 
     context 'with name' do
       let(:name) {
-        { "full": "Bart Lorang",
-          "given": "Bart",
-          "family": "Lorang" }
+        { full: "Bart Lorang",
+          given: "Bart",
+          family: "Lorang" }
       }
       let(:subject) do
         described_class.new(name: name)
@@ -127,10 +127,10 @@ module FcEnrich
 
     context 'with profiles' do
       let(:profiles) {
-        [{ "service": "twitter", "username": "bartlorang" },
-         { "service": "twitter", "userid": "5998422" },
-         { "service": "linkedin", "url": "https://www.linkedin.com/in/bartlorang" },
-         { "service": "github", "url": "https://www.github.com/lorangb" }]
+        [{ service: "twitter", username: "bartlorang" },
+         { service: "twitter", userid: "5998422" },
+         { service: "linkedin", url: "https://www.linkedin.com/in/bartlorang" },
+         { service: "github", url: "https://www.github.com/lorangb" }]
       }
       let(:subject) do
         described_class.new(profiles: profiles)
