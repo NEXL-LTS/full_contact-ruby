@@ -1,5 +1,5 @@
 require 'hashie'
-require 'active_support/core_ext/string'
+require 'active_support/core_ext/string/inflections'
 
 require_relative 'http_client'
 
