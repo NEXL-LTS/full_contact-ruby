@@ -4,6 +4,17 @@ module FcEnrich
   class Error < StandardError; end
   # Your code goes here...
 
+  class BadRequest < StandardError
+    attr_reader :status, :message
+
+    def initialize(response)
+      client_response = JSON.parse(response)
+      @status = client_response['status']
+      @message = client_response['message']
+      super
+    end
+  end
+
   def self.api_key=(val)
     @key = val.to_str
   end

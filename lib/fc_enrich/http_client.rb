@@ -10,6 +10,8 @@ module FcEnrich
       MultiJson.decode(response.body)
     rescue RestClient::NotFound, RestClient::UnprocessableEntity
       nil
+    rescue RestClient::BadRequest => e
+      raise FcEnrich::BadRequest.new(e.response)
     end
   end
 end
