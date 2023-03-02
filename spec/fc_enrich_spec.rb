@@ -1,6 +1,6 @@
 RSpec.describe FcEnrich do
   it "has a version number" do
-    expect(FcEnrich::VERSION).not_to be nil
+    expect(FcEnrich::VERSION).not_to be_nil
   end
 
   it 'can set api key' do
@@ -10,7 +10,7 @@ RSpec.describe FcEnrich do
   end
 
   it 'returns real client' do
-    expect(described_class.http_client).to be_kind_of(FcEnrich::HttpClient)
+    expect(described_class.http_client).to be_a(FcEnrich::HttpClient)
   end
 
   it 'returns fake person enrich with bart@fullcontact.com' do
