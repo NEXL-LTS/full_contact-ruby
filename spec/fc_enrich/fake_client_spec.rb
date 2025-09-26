@@ -15,7 +15,7 @@ module FcEnrich
 
     it 'works for /v3/person.enrich that do not exist' do
       data = subject.post("/v3/person.enrich", { email: "someone@mail.com" })
-      expect(data).to be_blank
+      expect(data).to be_nil
     end
 
     it 'works for /v3/company.enrich' do
@@ -25,7 +25,7 @@ module FcEnrich
 
     it 'works for /v3/company.enrich that do not exist' do
       data = subject.post("/v3/company.enrich", { domain: "someone.com" })
-      expect(data).to be_blank
+      expect(data).to be_nil
     end
 
     it 'allows to change folder' do
