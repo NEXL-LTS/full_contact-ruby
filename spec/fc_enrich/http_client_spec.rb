@@ -57,5 +57,17 @@ module FcEnrich
       data = subject.post("/v3/person.enrich", { my_data: "true" })
       expect(data).to be_nil
     end
+
+    it 'handles 410' do
+      stub_request(:post, "https://api.fullcontact.com/v3/person.enrich")
+        .with(
+          body: "{\"my_data\":\"true\"}",
+          headers: { 'Authorization' => 'Bearer TEST!' }
+        )
+        .and_raise(RestClient::Gone)
+
+      data = subject.post("/v3/person.enrich", { my_data: "true" })
+      expect(data).to be_nil
+    end
   end
 end
