@@ -1,3 +1,6 @@
+## [0.4.1]
+* Add explict accept type for RestClient while requesting progile from FullContact
+
 ## [0.4.0]
 * Add RestClient::Gone exception handling to return nil for HTTP 410 responses
 * Add test coverage for RestClient::Gone exception handling
