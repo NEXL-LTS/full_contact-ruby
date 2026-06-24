@@ -8,7 +8,9 @@ module FcEnrich
       stub_request(:post, "https://api.fullcontact.com/v3/person.enrich")
         .with(
           body: "{\"my_data\":\"true\"}",
-          headers: { 'Authorization' => 'Bearer TEST!' }
+          headers: { 'Authorization' => 'Bearer TEST!',
+                     'Accept' => %r{\Aapplication/json\b},
+                     'Content-Type' => %r{\Aapplication/json\b} }
         )
         .to_return(status: 200, body: { "return" => "result" }.to_json)
 

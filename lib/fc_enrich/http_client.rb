@@ -6,7 +6,9 @@ module FcEnrich
     def post(path, payload_hash)
       response = RestClient.post("https://api.fullcontact.com#{path}",
                                  MultiJson.encode(payload_hash),
-                                 authorization: "Bearer #{FcEnrich.api_key}")
+                                 authorization: "Bearer #{FcEnrich.api_key}",
+                                 content_type: :json,
+                                 accept: :json)
       MultiJson.decode(response.body)
     rescue RestClient::NotFound, RestClient::UnprocessableEntity, RestClient::Gone
       nil
